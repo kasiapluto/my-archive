@@ -20,6 +20,25 @@ a:hover {
     color: aqua;
 }
 
+@keyframes float-1 {
+  from { transform: translate(0px, 0px) rotate(-1deg); }
+  to   { transform: translate(8px, -10px) rotate(1deg); }
+}
+
+@keyframes float-2 {
+  from { transform: translate(0px, 0px) rotate(1deg); }
+  to   { transform: translate(-10px, 8px) rotate(-2deg); }
+}
+
+@keyframes float-3 {
+  from { transform: translate(0px, 0px) rotate(-2deg); }
+  to   { transform: translate(6px, 10px) rotate(2deg); }
+}
+
+.grid img {
+  will-change: transform; /* smoother animation */
+}
+
 .cat {
     background-image: url(images/tumblr_n4dockD6IV1rf4cqeo1_1280.jpg);
     height: 150px;
