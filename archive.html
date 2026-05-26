@@ -114,11 +114,11 @@ but i still remember, i will safekeep it forever.
 </div>
 
 <script>
+  // lightbox
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-img');
   const closeBtn = document.getElementById('lightbox-close');
 
-  // open on click
   document.querySelectorAll('.grid img').forEach(img => {
     img.addEventListener('click', () => {
       lightboxImg.src = img.src;
@@ -126,21 +126,25 @@ but i still remember, i will safekeep it forever.
     });
   });
 
-  // close on X
-  closeBtn.addEventListener('click', () => {
-    lightbox.classList.remove('active');
-  });
-
-  // close on background click
+  closeBtn.addEventListener('click', () => lightbox.classList.remove('active'));
   lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) {
-      lightbox.classList.remove('active');
-    }
+    if (e.target === lightbox) lightbox.classList.remove('active');
   });
-
-  // close on Escape key
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') lightbox.classList.remove('active');
+  });
+
+  // floating animation
+  const imgs = document.querySelectorAll('.grid img');
+
+  imgs.forEach(img => {
+    const x = (Math.random() - 0.5) * 30;
+    const y = (Math.random() - 0.5) * 30;
+    const duration = 2 + Math.random() * 3;
+    const delay = Math.random() * 2;
+
+    img.style.animation = `float-${Math.floor(Math.random()*3)+1} ${duration}s ${delay}s ease-in-out infinite alternate`;
+    img.style.transform = `translate(${x}px, ${y}px)`;
   });
 </script>
 </p>
