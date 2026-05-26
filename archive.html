@@ -6,10 +6,89 @@
 <title>archive tumblr 2014</title>
 
 <link href="styles.css" rel="stylesheet">
-
+<style>
+  /* lightbox */
+  .lightbox {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.85);
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+  }
+  .lightbox.active {
+    display: flex;
+  }
+  .lightbox img {
+    max-width: 90%;
+    max-height: 90vh;
+    object-fit: contain;
+    border: 3px solid aqua;
+  }
+  .lightbox-close {
+    position: fixed;
+    top: 20px; right: 30px;
+    font-size: 48px;
+    color: aqua;
+    cursor: pointer;
+    font-family: 'Jacquarda';
+    z-index: 1000;
+  }
+  .lightbox-close:hover {
+    color: rgb(255, 128, 213);
+  }
+</style>
 </head>
 
 <body>
+   <div class="cat"></div>
+
+<!-- lightbox overlay -->
+<div class="lightbox" id="lightbox">
+  <span class="lightbox-close" id="lightbox-close">✕</span>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<div class="grid">
+  <!-- your images here -->
+  <img src="images/tumblr_bcdfg2_784476270337589248_01.jpg">
+  <img src="images/tumblr_bcdfg2_784531862007824384_01.jpg">
+  <!-- etc -->
+</div>
+
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const closeBtn = document.getElementById('lightbox-close');
+
+  // open on click
+  document.querySelectorAll('.grid img').forEach(img => {
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      lightbox.classList.add('active');
+    });
+  });
+
+  // close on X
+  closeBtn.addEventListener('click', () => {
+    lightbox.classList.remove('active');
+  });
+
+  // close on background click
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+      lightbox.classList.remove('active');
+    }
+  });
+
+  // close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') lightbox.classList.remove('active');
+  });
+</script>
+   
    <div class="cat"></div>
     <p> tumblr archive 2014-2023</p>
      
