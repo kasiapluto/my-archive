@@ -45,49 +45,7 @@
 <body>
    <div class="cat"></div>
 
-<!-- lightbox overlay -->
-<div class="lightbox" id="lightbox">
-  <span class="lightbox-close" id="lightbox-close">✕</span>
-  <img id="lightbox-img" src="" alt="">
-</div>
 
-<div class="grid">
-  <!-- your images here -->
-  <img src="images/tumblr_bcdfg2_784476270337589248_01.jpg">
-  <img src="images/tumblr_bcdfg2_784531862007824384_01.jpg">
-  <!-- etc -->
-</div>
-
-<script>
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightbox-img');
-  const closeBtn = document.getElementById('lightbox-close');
-
-  // open on click
-  document.querySelectorAll('.grid img').forEach(img => {
-    img.addEventListener('click', () => {
-      lightboxImg.src = img.src;
-      lightbox.classList.add('active');
-    });
-  });
-
-  // close on X
-  closeBtn.addEventListener('click', () => {
-    lightbox.classList.remove('active');
-  });
-
-  // close on background click
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) {
-      lightbox.classList.remove('active');
-    }
-  });
-
-  // close on Escape key
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') lightbox.classList.remove('active');
-  });
-</script>
    
    <div class="cat"></div>
     <p> tumblr archive 2014-2023</p>
@@ -115,8 +73,14 @@ but i still remember, i will safekeep it forever.
      <details>
   <summary>gallery</summary>
   <p> 
-     <div class="grid">
-   <img src="images/tumblr_bcdfg2_784476270337589248_01.jpg" width="200">
+     <!-- lightbox overlay -->
+<div class="lightbox" id="lightbox">
+  <span class="lightbox-close" id="lightbox-close">✕</span>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<div class="grid">
+ <img src="images/tumblr_bcdfg2_784476270337589248_01.jpg" width="200">
 <img src="images/tumblr_bcdfg2_784531862007824384_01.jpg" width="200">
 <img src="images/tumblr_bcdfg2_784531862007824384_02.jpg" width="200">
 <img src="images/tumblr_bcdfg2_784531917707051008_05.png" width="200">
@@ -149,7 +113,38 @@ but i still remember, i will safekeep it forever.
 <img src="images/tumblr_bcdfg2_784475081612066816_02.jpg" width="200">
 <img src="images/tumblr_bcdfg2_784475117540589568_01.jpg" width="200">
 <img src="images/tumblr_bcdfg2_784475887666167808_02.jpg" width="200">
-        </div>
+</div>
+
+<script>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const closeBtn = document.getElementById('lightbox-close');
+
+  // open on click
+  document.querySelectorAll('.grid img').forEach(img => {
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      lightbox.classList.add('active');
+    });
+  });
+
+  // close on X
+  closeBtn.addEventListener('click', () => {
+    lightbox.classList.remove('active');
+  });
+
+  // close on background click
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+      lightbox.classList.remove('active');
+    }
+  });
+
+  // close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') lightbox.classList.remove('active');
+  });
+</script>
 </p>
 </details>
 
