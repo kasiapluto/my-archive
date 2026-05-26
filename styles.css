@@ -20,6 +20,20 @@ a:hover {
     color: aqua;
 }
 
+.lightbox-prev, .lightbox-next {
+  background: none;
+  border: none;
+  color: aqua;
+  font-size: 48px;
+  cursor: pointer;
+  padding: 20px;
+  font-family: 'Jacquarda';
+}
+
+.lightbox-prev:hover, .lightbox-next:hover {
+  color: rgb(255, 128, 213);
+}
+
 @keyframes float-1 {
   from { transform: translate(0px, 0px) rotate(-1deg); }
   to   { transform: translate(8px, -10px) rotate(1deg); }
