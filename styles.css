@@ -3,6 +3,11 @@
     src: url(fonts/JacquardaBastarda9Charted-Regular.ttf);
 }
 
+.center-text {
+  text-align: center;
+}
+
+
 body {
     font-family: 'Jacquarda';
     font-size: 36px;
