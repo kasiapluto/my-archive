@@ -97,6 +97,11 @@ a:hover {
     cursor: pointer;
 }
 
+.wrapper {
+    display: flex;
+    min-height: 100vh;
+}
+
 .sidebar {
     width: 220px;
     min-width: 220px;
