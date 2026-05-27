@@ -1,42 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>archive tumblr 2014</title>
-
-<link href="styles.css" rel="stylesheet">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>archive tumblr 2014</title>
+  <link href="styles.css" rel="stylesheet">
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.2.0/model-viewer.min.js"></script>
 </head>
-
 <body>
 
-<div class="wrapper">
+  <div class="wrapper">
 
     <nav class="sidebar">
       <h2><a href="index.html">archive</a></h2>
       <details>
-  <summary>landing</summary>
-</details>
+        <summary>landing</summary>
+      </details>
     </nav>
 
-<model-viewer src="model/melo.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="neutral" poster="poster.webp" shadow-intensity="0.6" camera-orbit="-144.4deg 82.92deg 3.656m" field-of-view="30deg" exposure="2" shadow-softness="1">
-    <div class="progress-bar hide" slot="progress-bar">
-        <div class="update-bar"></div>
-    </div>
-    <button slot="ar-button" id="ar-button">
-        View in your space
-    </button>
-    <div id="ar-prompt">
-        <img src="">
-    </div>
-</model-viewer>
+    <main class="content">
+      <model-viewer src="model/melo.glb" ar ar-modes="webxr scene-viewer quick-look" camera-controls tone-mapping="neutral" poster="poster.webp" shadow-intensity="0.6" camera-orbit="-144.4deg 82.92deg 3.656m" field-of-view="30deg" exposure="2" shadow-softness="1">
+        <div class="progress-bar hide" slot="progress-bar">
+          <div class="update-bar"></div>
+        </div>
+        <button slot="ar-button" id="ar-button">View in your space</button>
+        <div id="ar-prompt">
+          <img src="" alt="">
+        </div>
+      </model-viewer>
 
-<script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.2.0/model-viewer.min.js"></script>
+      <p>archive tumblr 2014-2023</p>
+      <a href="archive.html">enter</a>
 
+    </main>
 
- <p>archive tumblr 2014-2023</p>
-   <a href="archive.html">enter</a>. 
-   
+  </div>
+
 </body>
 </html>
