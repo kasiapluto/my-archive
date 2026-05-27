@@ -13,6 +13,12 @@ body {
     font-size: 36px;
     background-color: rgb(255, 128, 213);
     color: rgb(61, 55, 55);
+    background-image: url(images/tumblr_n4dockD6IV1rf4cqeo1_1280.jpg);
+  background-size: 500px;
+  background-position: center;
+  background-repeat: repeat;
+  min-height: 100vh;
+  background-blend-mode: multiply;  /* or: overlay, luminosity, multiply */
 }
 
 a {
