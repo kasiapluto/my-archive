@@ -1031,62 +1031,56 @@ but i still remember, i will safekeep it forever.
   function openLightbox(index) {
     currentIndex = index;
     const img = imgs[currentIndex];
+    lightboxImg.style.display = '';
     lightboxImg.src = img.src;
-
     document.getElementById('meta-filename').textContent = img.src.split('/').pop();
     document.getElementById('meta-status').textContent = img.dataset.status || 'present';
     document.getElementById('meta-note').textContent = img.dataset.note || '';
-
     lightbox.classList.add('active');
   }
 
-  // open on click
   imgs.forEach((img, index) => {
     img.addEventListener('click', () => openLightbox(index));
-
-    // floating animation
     const duration = 2 + Math.random() * 3;
     const delay = Math.random() * 2;
     img.style.animation = `float-${Math.floor(Math.random()*3)+1} ${duration}s ${delay}s ease-in-out infinite alternate`;
   });
 
- // prev / next
   prevBtn.addEventListener('click', (e) => {
     e.stopPropagation();
     openLightbox((currentIndex - 1 + imgs.length) % imgs.length);
   });
+
   nextBtn.addEventListener('click', (e) => {
     e.stopPropagation();
     openLightbox((currentIndex + 1) % imgs.length);
   });
 
-  // arrow keys
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') lightbox.classList.remove('active');
+    if (e.key === 'Escape') closeLightbox();
     if (e.key === 'ArrowLeft') prevBtn.click();
     if (e.key === 'ArrowRight') nextBtn.click();
   });
 
-  closeBtn.addEventListener('click', () => lightbox.classList.remove('active'));
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    lightboxImg.style.display = '';
+  }
+
+  closeBtn.addEventListener('click', closeLightbox);
   lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) lightbox.classList.remove('active');
+    if (e.target === lightbox) closeLightbox();
   });
 
   function openGhostLightbox(el) {
-  const recovered = el.querySelector('.ghost-recovered');
-  document.getElementById('meta-filename').textContent = recovered.children[0].textContent.replace('filename: ', '');
-  document.getElementById('meta-status').textContent = recovered.children[1].textContent.replace('status: ', '');
-  document.getElementById('meta-note').textContent = recovered.children[3].textContent.replace('note: ', '');
-  lightboxImg.src = '';
-  lightboxImg.style.display = 'none';
-  lightbox.classList.add('active');
-}
-
-// and make sure your close button resets the image display
-closeBtn.addEventListener('click', () => {
-  lightbox.classList.remove('active');
-  lightboxImg.style.display = '';
-});
+    const recovered = el.querySelector('.ghost-recovered');
+    lightboxImg.style.display = 'none';
+    lightboxImg.src = '';
+    document.getElementById('meta-filename').textContent = recovered.children[0].textContent.replace('filename: ', '');
+    document.getElementById('meta-status').textContent = recovered.children[1].textContent.replace('status: ', '');
+    document.getElementById('meta-note').textContent = recovered.children[3].textContent.replace('note: ', '');
+    lightbox.classList.add('active');
+  }
 </script>
 </details>
 
