@@ -206,8 +206,11 @@ a:hover {
   opacity: 0;
 }
 
-.ghost:hover .ghost-recovered {
+.ghost:hover {
   opacity: 1;
+  border-color: aqua;
+  background: rgba(0, 255, 255, 0.03);
+  animation: glitch 2s infinite;
 }
 
 .ghost-recovered {
