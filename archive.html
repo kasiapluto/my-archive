@@ -115,14 +115,32 @@ but i still remember, i will safekeep it forever.
 <div class="grid">
   <img src="images/tumblr_bcdfg2_775290745770983424_01.jpg">
 <img src="images/tumblr_bcdfg2_775290756757880832_01.jpg" data-note="why did we collect it? it was cute and we wanted it. ">
-  <div class="ghost-entry">
-  <span>data not recovered</span>
+  <div class="ghost" onclick="openGhostLightbox(this)">
+  <div class="ghost-inner">
+    <span class="ghost-label">[ data not recovered ]</span>
+    <span class="ghost-meta">filename unknown</span>
+  </div>
+  <div class="ghost-recovered">
+    <span>filename: unknown</span>
+    <span>status: missing</span>
+    <span>last seen: 2016</span>
+    <span>note: i remember this one but the file is gone.</span>
+  </div>
 </div>
 <img src="images/tumblr_bcdfg2_775290756757880832_02.jpg" data-note="why did we collect it? it was cute and we wanted it. ">
 <img src="images/tumblr_bcdfg2_775290843778121728_01.jpg" data-note="cool clothing and good material study. less about the figure and more about the form of material.">
 <img src="images/tumblr_bcdfg2_775290868405059584_01.png" data-note="cute, colorful, transparency is neat">
-<div class="ghost-entry">
-  <span>data not recovered</span>
+<div class="ghost" onclick="openGhostLightbox(this)">
+  <div class="ghost-inner">
+    <span class="ghost-label">[ data not recovered ]</span>
+    <span class="ghost-meta">filename unknown</span>
+  </div>
+  <div class="ghost-recovered">
+    <span>filename: unknown</span>
+    <span>status: missing</span>
+    <span>last seen: 2016</span>
+    <span>note: i remember this one but the file is gone.</span>
+  </div>
 </div>
 <img src="images/tumblr_bcdfg2_775290868405059584_02.gif" data-note="cute, colorful, transparency is neat">
   <div class="ghost-entry">
@@ -508,6 +526,22 @@ but i still remember, i will safekeep it forever.
   lightbox.addEventListener('click', (e) => {
     if (e.target === lightbox) lightbox.classList.remove('active');
   });
+
+  function openGhostLightbox(el) {
+  const recovered = el.querySelector('.ghost-recovered');
+  document.getElementById('meta-filename').textContent = recovered.children[0].textContent.replace('filename: ', '');
+  document.getElementById('meta-status').textContent = recovered.children[1].textContent.replace('status: ', '');
+  document.getElementById('meta-note').textContent = recovered.children[3].textContent.replace('note: ', '');
+  lightboxImg.src = '';
+  lightboxImg.style.display = 'none';
+  lightbox.classList.add('active');
+}
+
+// and make sure your close button resets the image display
+closeBtn.addEventListener('click', () => {
+  lightbox.classList.remove('active');
+  lightboxImg.style.display = '';
+});
 </script>
 </details>
 
