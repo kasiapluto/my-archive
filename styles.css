@@ -171,3 +171,93 @@ a:hover {
 .meta-label {
   color: rgb(255, 128, 213);
 }
+
+.ghost {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  border: 2px dashed rgba(255, 128, 213, 0.4);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.5;
+}
+
+.ghost-inner {
+  text-align: center;
+  color: rgb(255, 128, 213);
+  font-family: 'Jacquarda';
+  font-size: 16px;
+  font-style: italic;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+.ghost-inner .ghost-label {
+  display: block;
+  font-size: 22px;
+  margin-bottom: 6px;
+  letter-spacing: 2px;
+}
+
+.ghost-inner .ghost-meta {
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.ghost:hover {
+  opacity: 1;
+  border-color: aqua;
+  background: rgba(0, 255, 255, 0.03);
+  animation: glitch 0.3s infinite;
+}
+
+.ghost:hover .ghost-inner {
+  opacity: 0;
+}
+
+.ghost:hover .ghost-recovered {
+  opacity: 1;
+}
+
+.ghost-recovered {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  padding: 10px;
+  font-family: 'Jacquarda';
+  font-size: 14px;
+  color: aqua;
+  font-style: italic;
+  text-align: center;
+  gap: 4px;
+}
+
+@keyframes glitch {
+  0%   { transform: translate(0); filter: none; }
+  20%  { transform: translate(-2px, 1px); filter: hue-rotate(90deg); }
+  40%  { transform: translate(2px, -1px); filter: brightness(1.5); }
+  60%  { transform: translate(-1px, 2px); filter: hue-rotate(180deg); }
+  80%  { transform: translate(1px, -2px); filter: brightness(0.8); }
+  100% { transform: translate(0); filter: none; }
+}
+
+.ghost.speculative {
+  animation: flicker 3s infinite;
+  border-style: dotted;
+}
+
+@keyframes flicker {
+  0%, 95%, 100% { opacity: 0.5; }
+  96%            { opacity: 0.1; }
+  97%            { opacity: 0.4; }
+  98%            { opacity: 0.15; }
+}
